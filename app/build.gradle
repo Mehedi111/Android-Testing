@@ -17,6 +17,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "image_api_key", image_api_key)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
