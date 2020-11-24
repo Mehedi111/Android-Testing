@@ -12,9 +12,9 @@ import javax.inject.Inject
  * Created by Mehedi Hasan on 11/23/2020.
  */
 class DefaultShoppingRepository @Inject constructor(
-
     private val shoppingDao: ShoppingDao,
     private val pixabayAPI: PixabayAPI
+
 ) : ShoppingRepository {
 
     override suspend fun insertShoppingItem(shoppingItem: ShoppingItem) {

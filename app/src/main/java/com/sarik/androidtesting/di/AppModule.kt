@@ -3,9 +3,12 @@ package com.sarik.androidtesting.di
 import android.content.Context
 import androidx.room.Room
 import com.androiddevs.shoppinglisttestingyt.data.remote.PixabayAPI
+import com.sarik.androidtesting.data.local.ShoppingDao
 import com.sarik.androidtesting.data.local.ShoppingItemDatabase
 import com.sarik.androidtesting.others.Constants.BASE_URL
 import com.sarik.androidtesting.others.Constants.DATABASE_NAME
+import com.sarik.androidtesting.repositories.DefaultShoppingRepository
+import com.sarik.androidtesting.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,4 +45,10 @@ object AppModule {
         .build()
         .create(PixabayAPI::class.java)
 
+    @Singleton
+    @Provides
+    fun provideDeafultShoppingRepository(
+        dao: ShoppingDao,
+        pixabayAPI: PixabayAPI
+    ) =  DefaultShoppingRepository(dao, pixabayAPI) as ShoppingRepository
 }
