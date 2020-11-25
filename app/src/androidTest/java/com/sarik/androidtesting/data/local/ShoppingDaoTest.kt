@@ -7,6 +7,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.sarik.androidtesting.getOrAwaitValue
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
@@ -14,30 +16,32 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Created by Mehedi Hasan on 11/22/2020.
  */
 
 @ExperimentalCoroutinesApi
-@RunWith(AndroidJUnit4::class)
 @SmallTest // tell junit that it is unit test
+@HiltAndroidTest //inject dependency into this class
 class ShoppingDaoTest {
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @get:Rule //tell junit to run synchronous (One function after another)
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var database: ShoppingItemDatabase
+    @Inject
+    @Named("test_db")
+    lateinit var database: ShoppingItemDatabase
     private lateinit var dao: ShoppingDao;
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder( // create db only in ram
-            ApplicationProvider.getApplicationContext(),
-            ShoppingItemDatabase::class.java
-        ).allowMainThreadQueries() // block main thread but we need it to test on main thread
-            .build()
-
+        hiltRule.inject() //this function inject all our dependency here which is annotate with @inject
         dao = database.getShoppingDao()
     }
 

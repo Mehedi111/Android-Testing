@@ -19,7 +19,7 @@ android {
         versionName "1.0"
         buildConfigField("String", "image_api_key", image_api_key)
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.sarik.androidtesting.HiltTestRunner"
     }
 
     buildTypes {
@@ -123,6 +123,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation "org.mockito:mockito-core:2.21.0"
+
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.28-alpha'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.28-alpha'
 
 
 }
