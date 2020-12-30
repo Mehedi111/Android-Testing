@@ -7,6 +7,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.sarik.androidtesting.getOrAwaitValue
+import com.sarik.androidtesting.lunchFragmentInHiltContainer
+import com.sarik.androidtesting.ui.ShoppingFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -49,6 +51,8 @@ class ShoppingDaoTest {
     fun dismiss() {
         database.close()
     }
+
+
 
     // Now test all the functionality of Dao
 
