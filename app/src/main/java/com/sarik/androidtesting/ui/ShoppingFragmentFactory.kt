@@ -1,0 +1,21 @@
+package com.sarik.androidtesting.ui
+
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
+import com.sarik.androidtesting.adapters.ImageAdapter
+import javax.inject.Inject
+
+/**
+ * Created by Mehedi Hasan on 12/31/2020.
+ */
+class ShoppingFragmentFactory @Inject constructor(
+    private val imageAdapter: ImageAdapter
+) : FragmentFactory() {
+
+    override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
+        return when (className) {
+            ImagePickFragment::class.java.name -> ImagePickFragment(imageAdapter)
+            else -> super.instantiate(classLoader, className)
+        }
+    }
+}
