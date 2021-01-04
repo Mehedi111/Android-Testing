@@ -5,12 +5,13 @@ import androidx.fragment.app.FragmentFactory
 import com.bumptech.glide.RequestManager
 import com.sarik.androidtesting.adapters.ImageAdapter
 import com.sarik.androidtesting.adapters.ShoppingItemAdapter
+import com.sarik.androidtesting.repositories.FakseShoppingRepoAndroidTRest
 import javax.inject.Inject
 
 /**
  * Created by Mehedi Hasan on 12/31/2020.
  */
-class ShoppingFragmentFactory @Inject constructor(
+class TestShoppingFragmentFactory @Inject constructor(
     private val imageAdapter: ImageAdapter,
     private val glide: RequestManager,
     private val shoppingItemAdapter: ShoppingItemAdapter
@@ -20,7 +21,10 @@ class ShoppingFragmentFactory @Inject constructor(
         return when (className) {
             ImagePickFragment::class.java.name -> ImagePickFragment(imageAdapter)
             AddShoppingItem::class.java.name -> AddShoppingItem(glide)
-            ShoppingFragment::class.java.name -> ShoppingFragment(shoppingItemAdapter)
+            ShoppingFragment::class.java.name -> ShoppingFragment(shoppingItemAdapter, ShoppingViewModel(
+                FakseShoppingRepoAndroidTRest()
+            )
+            )
             else -> super.instantiate(classLoader, className)
         }
     }
