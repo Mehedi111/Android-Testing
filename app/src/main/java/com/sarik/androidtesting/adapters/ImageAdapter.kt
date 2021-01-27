@@ -33,6 +33,7 @@ class ImageAdapter @Inject constructor(
     private val differ = AsyncListDiffer(this, diffCallback)
 
     var images: List<String>
+
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
@@ -42,6 +43,7 @@ class ImageAdapter @Inject constructor(
                 .inflate(R.layout.item_image, parent, false)
 
         )
+
     }
 
     private var onItemClick : ((String) -> Unit)? = null

@@ -30,6 +30,8 @@ class ImagePickFragment @Inject constructor(
             findNavController().popBackStack()
             viewModel.setCurrentImageUrl(it)
         }
+
+
     }
 
     private fun setUpRecyclerView(){

@@ -3,7 +3,7 @@ package com.sarik.androidtesting.repositories
 import androidx.lifecycle.LiveData
 import com.androiddevs.shoppinglisttestingyt.data.remote.PixabayAPI
 import com.androiddevs.shoppinglisttestingyt.data.remote.responses.ImageResponse
-import com.androiddevs.shoppinglisttestingyt.other.Resource
+import com.sarik.androidtesting.others.Resource
 import com.sarik.androidtesting.data.local.ShoppingDao
 import com.sarik.androidtesting.data.local.ShoppingItem
 import javax.inject.Inject

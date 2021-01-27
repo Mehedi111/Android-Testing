@@ -1,4 +1,4 @@
-package com.androiddevs.shoppinglisttestingyt.other
+package com.sarik.androidtesting.others
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {

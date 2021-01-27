@@ -6,7 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.androiddevs.shoppinglisttestingyt.other.Status
+import com.sarik.androidtesting.others.Status
 import com.bumptech.glide.RequestManager
 import com.google.android.material.snackbar.Snackbar
 import com.sarik.androidtesting.R

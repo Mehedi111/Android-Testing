@@ -2,7 +2,7 @@ package com.sarik.androidtesting.repositories
 
 import androidx.lifecycle.LiveData
 import com.androiddevs.shoppinglisttestingyt.data.remote.responses.ImageResponse
-import com.androiddevs.shoppinglisttestingyt.other.Resource
+import com.sarik.androidtesting.others.Resource
 import com.sarik.androidtesting.data.local.ShoppingItem
 
 /**

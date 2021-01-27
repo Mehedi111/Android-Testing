@@ -1,7 +1,7 @@
 package com.sarik.androidtesting.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.androiddevs.shoppinglisttestingyt.other.Status
+import com.sarik.androidtesting.others.Status
 import com.google.common.truth.Truth.assertThat
 import com.sarik.androidtesting.MainCoroutineRule
 import com.sarik.androidtesting.getOrAwaitValueTest
