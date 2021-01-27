@@ -1,15 +1,23 @@
 language: android
-sudo: required
 jdk: oraclejdk8
+
 android:
   components:
-    - tools
     - platform-tools
     - tools
+
     - build-tools-29.0.3
+
     - android-29
+
+    - extra-google-google_play_services
+    - extra-google-m2repository
     - extra-android-m2repository
-#before_install:
-  - chmod +x gradlew
+    - addon-google_apis-google-19
+
+
+before_install:
+  - yes | sdkmanager "platforms;android-29"
+
 script:
-  - ./gradlew build
+  - ./gradlew assembleDebug
